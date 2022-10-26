@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <h1>Page Score</h1>
+    <a href="index.html">Back Home</a>
+
+    <table>
+        <thead>
+          <tr>
+            <th>Info</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nb Word(s) found</td>
+            <td><span id='score_value'>42</span></td>
+          </tr>
+          <tr>
+            <td>Average try</td>
+            <td><span id='tries_data'>data</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    <style>
+        table {
+                border: 1px solid #373737;
+                margin-bottom: 20px;
+                text-align: left;
+            }
+
+        table   {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+        td {
+                padding: 10px;
+                border: 1px solid #373737;
+            }
+
+        th {
+                font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                padding: 10px;
+                background: #373737;
+                color: #fff;
+            }
+    </style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+    const user = localStorage.getItem('user')
+    fetch('http://localhost:4000/get_score?user='+user)
+        .then(response => 
+        {
+            if(response.ok){
+                return response.text();
+            }
+        }).then(text => {
+            console.log('Response : ',text)
+            const datas = JSON.parse(text)
+            console.log('datas : ',datas)
+
+            $('#score_value').html(datas.score)
+            $('#tries_data').html(datas.avg_tries)
+        })
+
+</script>
+
+</html>

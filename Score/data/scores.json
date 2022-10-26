@@ -1,0 +1,12 @@
+[
+    {
+        "login":"Yohann",
+        "score":2,
+        "avg_tries":2
+    },
+    {
+        "login":"Arnaud",
+        "score":10,
+        "avg_tries":3
+    }
+]

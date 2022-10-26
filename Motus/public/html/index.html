@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+    <form>
+        <label for="word">Word</label><br>
+        <input type="text" id="word_test" name="word_test" maxlength="100"><br>
+        <input type="submit" value="Submit" id='submit'>
+    </form> 
+
+    <form>
+        <input type="submit" value="New Word" id='new_word'>
+    </form> 
+
+
+
+    <a href="score.html" id="lien_score">Votre Score</a>
+    <a href="login.html" id="lien_login">Se connecter</a>
+    <a href="logout.html" id="lien_logout">Se déconnecter</a>
+    <a href="register.html" id="lien_register">S'inscrire</a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+
+</html>
+
+<script>
+
+let good_word =''
+    $.get('/test', (data)=> 
+    {
+        fetch('http://localhost:4000/get_score')
+        .then(response => 
+        {
+            if(response.ok){
+                return response.text();
+            }
+        }).then(text => {
+            console.log('Text : ',text)
+        })
+    })
+
+    
+    $.get('/word', (data)=> 
+    {
+        good_word =  data
+        const word_test =  $('#word_test')
+        word_test[0].setAttribute("maxlength",good_word.length)
+        console.log('LE mot du jour : ',good_word,' de longueur ',good_word.length)
+
+    })
+
+
+    const btn_new_word = $('#new_word')
+    btn_new_word[0].addEventListener('click', function(event){
+        event.preventDefault()
+        $.get('/new_word', (new_word)=> {
+            good_word = new_word
+            const word_test =  $('#word_test')
+            word_test[0].setAttribute("maxlength",new_word.length)
+            console.log('LE mot du jour : ',new_word,' de longueur ',new_word.length)
+
+        })
+        
+    });
+    
+    
+    function compareWords(test,good) {
+
+        console.log('Votre test : ',test)
+        console.log('le mot a trouver : ',good)
+        
+        const tests = test.split('')
+        const goods = good.split('')
+        tests.forEach((letter,index) => {
+            if (letter == goods[index]) {
+                console.log('Oui')
+            }else{
+                console.log('Non')
+            }
+        });
+        
+        return 
+    }
+
+    const btn_submit =  $('#submit')
+
+        
+    btn_submit[0].addEventListener('click', function(event){
+        event.preventDefault()
+        const test =  $('#word_test').val()
+        compareWords(test,good_word)
+    })
+
+</script>
