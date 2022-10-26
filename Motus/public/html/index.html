@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-    <form>
-        <label for="word">Word</label><br>
-        <input type="text" id="word_test" name="word_test" maxlength="100"><br>
-        <input type="submit" value="Submit" id='submit'>
-    </form> 
+    <head>
+        <link rel="stylesheet" href="../css/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <form id="form">
+            <div class="container-grid">
 
-    <form>
-        <input type="submit" value="New Word" id='new_word'>
-    </form> 
+            </div>
+
+
+            <input type="text" id="word_test" name="word_test" maxlength="100"><br>
+            <input type="submit" value="Submit" id='submit'>
+        </form> 
+
+        <form>
+            <input type="submit" value="New Word" id='new_word'>
+        </form> 
 
 
 
-    <a href="score.html" id="lien_score">Votre Score</a>
-    <a href="login.html" id="lien_login">Se connecter</a>
-    <a href="logout.html" id="lien_logout">Se déconnecter</a>
-    <a href="register.html" id="lien_register">S'inscrire</a>
+        <a href="score.html" id="lien_score">Votre Score</a>
+        <a href="login.html" id="lien_login">Se connecter</a>
+        <a href="logout.html" id="lien_logout">Se déconnecter</a>
+        <a href="register.html" id="lien_register">S'inscrire</a>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    
-
+        
+        
+    </body>
 </html>
 
 <script>
@@ -44,7 +53,33 @@ let good_word =''
         const word_test =  $('#word_test')
         word_test[0].setAttribute("maxlength",good_word.length)
         console.log('LE mot du jour : ',good_word,' de longueur ',good_word.length)
+        const container = $('.container-grid')
+        console.log('ma grid ',container)
+        container.empty()
+        for (let i = 0; i < good_word.length; i ++) {
 
+            container.append('<div class="grid"><label for="word_test" class="grid-label"></label></div>')
+        }
+
+
+        const grid_labels = $('.grid-label')
+        console.log('mes cases : ',grid_labels)
+
+        word_test.keyup(function (event) {
+            grid_labels.removeClass('grid_ok')
+            grid_labels.removeClass('grid_misplaced')
+            grid_labels.removeClass('grid_false')
+            const value_test = event.target.value
+            const letters = value_test.split('')
+            console.log(letters)
+
+            letters.forEach((letter,index) => {
+                console.log('grid ', grid_labels[index])
+                grid_labels.eq(index).html(letter)
+            
+            });
+      });
+        
     })
 
 
@@ -55,7 +90,32 @@ let good_word =''
             good_word = new_word
             const word_test =  $('#word_test')
             word_test[0].setAttribute("maxlength",new_word.length)
-            console.log('LE mot du jour : ',new_word,' de longueur ',new_word.length)
+            console.log('LE nouveau mot du jour : ',new_word,' de longueur ',new_word.length)
+
+            const container = $('.container-grid')
+        console.log('ma grid ',container)
+        container.empty()
+        for (let i = 0; i < new_word.length; i ++) {
+            
+            container.append('<div class="grid"><label for="word_test" class="grid-label"></label></div>')
+        }
+
+
+        const grid_labels = $('.grid-label')
+        console.log('mes cases : ',grid_labels)
+
+        word_test.keyup(function (event) {
+        
+            const value_test = event.target.value
+            const letters = value_test.split('')
+            console.log(letters)
+
+            letters.forEach((letter,index) => {
+                console.log('grid ', grid_labels[index])
+                grid_labels.eq(index).html(letter)
+            
+            });
+      });
 
         })
         
@@ -63,20 +123,32 @@ let good_word =''
     
     
     function compareWords(test,good) {
-
+        const grid_letters = $('.grid-label')
+        grid_letters.removeClass('grid_ok')
+        grid_letters.removeClass('grid_misplaced')
+        grid_letters.removeClass('grid_false')
         console.log('Votre test : ',test)
         console.log('le mot a trouver : ',good)
         
         const tests = test.split('')
         const goods = good.split('')
+        
+        
+        
         tests.forEach((letter,index) => {
             if (letter == goods[index]) {
-                console.log('Oui')
+                console.log('Oui : ',letter,' = ',goods[index])
+                grid_letters.eq(index).addClass('grid_ok')
             }else{
-                console.log('Non')
+                if (goods.includes(letter)) {
+                    grid_letters.eq(index).addClass('grid_misplaced')
+                } else {
+                    grid_letters.eq(index).addClass('grid_false')
+                }
+                
             }
         });
-        
+        console.log('MA grille :',grid_letters)
         return 
     }
 
@@ -88,5 +160,12 @@ let good_word =''
         const test =  $('#word_test').val()
         compareWords(test,good_word)
     })
+
+
+    
+
+    
+
+
 
 </script>
