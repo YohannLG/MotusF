@@ -1,3 +1,15 @@
+body{
+    margin: 5%;
+    background-color: rgb(23, 62, 90);
+    color: white;
+}
+
+a{
+    color: white;
+}
+input[type=submit]{
+    cursor: pointer;
+}
 .container-grid{
     width: 100%;
     height: 10vw;
@@ -7,11 +19,12 @@
 
 .grid{
     display: flex;
-    background-color: black;
+    background-color: rgba(221, 221, 221, 0.856);
     width: 15%;
     padding-top: 0.2%;
     padding-bottom: 0.2%;
     padding-right: 0.2%;
+    border-radius: 5%;
 }
 .grid:first-child
 {
@@ -19,7 +32,7 @@
 }
 
 .grid-label{
-    background-color: white;
+    background-color: rgb(23, 62, 90);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -38,4 +51,98 @@
 }
 .grid_misplaced{
     background-color: orange;
+}
+
+.container-input{
+    display: flex;
+    opacity: 0;
+}
+
+.container-input input{
+    cursor:default;
+}
+.container-yorus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 68px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 10px 5px rgba(0, 0, 0, 0.5);
+}
+.container-username{
+    display: flex;
+    justify-content: center;
+}
+pre div{
+    display: flex;
+    align-items: center;
+}
+
+.container-score{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-score .div-a {
+    max-width: 10%;
+    text-decoration: none;
+    background-color: white;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5%;
+    padding: 0.5%;
+    border-radius: 15vw
+}
+.div-a a{
+    width: 80%;
+    text-decoration: none;
+    color: rgb(23, 62, 90);
+    text-align: center;
+}
+
+.container-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+}
+#submit{
+    width: 20%;
+    padding: 2%;
+    background-color: rgb(23, 62, 90);
+    color: white;
+    border:solid rgb(15, 40, 58);
+    border-radius: 10px;
+    transition: transform .1s;
+    font-weight: bold;
+    font-size: 90%;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
+}
+#submit:hover{
+    transform: scale(1.1);
+    color: rgb(23, 62, 90);
+    background-color: white;
+}
+
+.container-new-word{
+    width: 100%;
+    text-decoration: none;
+    color: rgb(23, 62, 90);
+    display: flex;
+    align-items: center;
+}
+.container-new-word input{
+    color: rgb(23, 62, 90);
+    background-color: white;
+    padding: 1%;
+    border:solid rgb(15, 40, 58);
+    border-radius: 10px;
+    box-shadow: 10px 10px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.container-new-word input:hover{
+    background-color: rgb(23, 62, 90);
+    color: white;
 }

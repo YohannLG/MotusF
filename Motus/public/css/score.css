@@ -1,0 +1,56 @@
+body{
+    margin: 5%;
+    background-color: rgb(23, 62, 90);
+    color: white;
+}
+a{
+    color: white;
+}
+.container-score{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 68px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 2%;
+    margin: 5% 5% 2% 5%;
+}
+
+table {
+    width: 50%;
+    border: 2px solid white;
+    text-align: left;
+
+}
+
+table   {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+td {
+    padding: 10px;
+    border: 1px solid white;
+    text-align: center;
+    padding: 5%;
+}
+.td-left{
+    width: 50%;
+}
+th {
+    font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 10px;
+    border:solid 1px white;
+    color: #fff;
+    text-align: center;
+
+}

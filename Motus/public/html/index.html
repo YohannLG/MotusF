@@ -3,169 +3,66 @@
         <link rel="stylesheet" href="../css/index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     </head>
-    <body>
+    <body>  
+        <div class="container-yorus">
+            <div class="title">Y</div>
+            <div class="title">O</div>
+            <div class="title">R</div>
+            <div class="title">U</div>
+            <div class="title">S</div>
+        </div>
+
+        <div class="container-username">
+            <pre>     
+                <div>          
+                    <span>Bonjour </span><span id="span-user"></span><span> ! Tentez de trouver le mot du jour.</span>
+                </div> 
+            </pre>
+
+        </div>
+
+        <div class="container-score">
+            <div class="div-a"><a href="score.html" id="lien_score">Votre Score</a></div>
+            <div class="div-a"><a href="logout.html" id="lien_logout">Se déconnecter</a></div>
+        </div>
+        <br>
         <form id="form">
             <div class="container-grid">
-
             </div>
 
-
-            <input type="text" id="word_test" name="word_test" maxlength="100"><br>
-            <input type="submit" value="Submit" id='submit'>
+            <div class="container-input">
+                <input type="text" id="word_test" name="word_test" maxlength="100">
+            </div>
+            
+            <div class="container-submit">
+                <input type="submit" id="submit" value='Enregistrer la réponse'>
+            </div>
+            
         </form> 
 
         <form>
-            <input type="submit" value="New Word" id='new_word'>
+            <div class="container-new-word">
+                <input type="submit" value="Générer un nouveau mot" id='new_word'>
+            </div>
+            
         </form> 
 
 
-
-        <a href="score.html" id="lien_score">Votre Score</a>
-        <a href="login.html" id="lien_login">Se connecter</a>
-        <a href="logout.html" id="lien_logout">Se déconnecter</a>
-        <a href="register.html" id="lien_register">S'inscrire</a>
-
-        
+        <div></div>      
         
     </body>
 </html>
 
 <script>
 
-let good_word =''
-    $.get('/test', (data)=> 
-    {
-        fetch('http://localhost:4000/get_score')
-        .then(response => 
-        {
-            if(response.ok){
-                return response.text();
-            }
-        }).then(text => {
-            console.log('Text : ',text)
-        })
-    })
+    // Si on est pas connecté, on se redirige vers la page de connexion
 
-    
-    $.get('/word', (data)=> 
-    {
-        good_word =  data
-        const word_test =  $('#word_test')
-        word_test[0].setAttribute("maxlength",good_word.length)
-        console.log('LE mot du jour : ',good_word,' de longueur ',good_word.length)
-        const container = $('.container-grid')
-        console.log('ma grid ',container)
-        container.empty()
-        for (let i = 0; i < good_word.length; i ++) {
-
-            container.append('<div class="grid"><label for="word_test" class="grid-label"></label></div>')
-        }
-
-
-        const grid_labels = $('.grid-label')
-        console.log('mes cases : ',grid_labels)
-
-        word_test.keyup(function (event) {
-            grid_labels.removeClass('grid_ok')
-            grid_labels.removeClass('grid_misplaced')
-            grid_labels.removeClass('grid_false')
-            const value_test = event.target.value
-            const letters = value_test.split('')
-            console.log(letters)
-
-            letters.forEach((letter,index) => {
-                console.log('grid ', grid_labels[index])
-                grid_labels.eq(index).html(letter)
-            
-            });
-      });
-        
-    })
-
-
-    const btn_new_word = $('#new_word')
-    btn_new_word[0].addEventListener('click', function(event){
-        event.preventDefault()
-        $.get('/new_word', (new_word)=> {
-            good_word = new_word
-            const word_test =  $('#word_test')
-            word_test[0].setAttribute("maxlength",new_word.length)
-            console.log('LE nouveau mot du jour : ',new_word,' de longueur ',new_word.length)
-
-            const container = $('.container-grid')
-        console.log('ma grid ',container)
-        container.empty()
-        for (let i = 0; i < new_word.length; i ++) {
-            
-            container.append('<div class="grid"><label for="word_test" class="grid-label"></label></div>')
-        }
-
-
-        const grid_labels = $('.grid-label')
-        console.log('mes cases : ',grid_labels)
-
-        word_test.keyup(function (event) {
-        
-            const value_test = event.target.value
-            const letters = value_test.split('')
-            console.log(letters)
-
-            letters.forEach((letter,index) => {
-                console.log('grid ', grid_labels[index])
-                grid_labels.eq(index).html(letter)
-            
-            });
-      });
-
-        })
-        
-    });
-    
-    
-    function compareWords(test,good) {
-        const grid_letters = $('.grid-label')
-        grid_letters.removeClass('grid_ok')
-        grid_letters.removeClass('grid_misplaced')
-        grid_letters.removeClass('grid_false')
-        console.log('Votre test : ',test)
-        console.log('le mot a trouver : ',good)
-        
-        const tests = test.split('')
-        const goods = good.split('')
-        
-        
-        
-        tests.forEach((letter,index) => {
-            if (letter == goods[index]) {
-                console.log('Oui : ',letter,' = ',goods[index])
-                grid_letters.eq(index).addClass('grid_ok')
-            }else{
-                if (goods.includes(letter)) {
-                    grid_letters.eq(index).addClass('grid_misplaced')
-                } else {
-                    grid_letters.eq(index).addClass('grid_false')
-                }
-                
-            }
-        });
-        console.log('MA grille :',grid_letters)
-        return 
+    if (localStorage.getItem('user')==null) {
+        window.location = '/html/login.html'
     }
 
-    const btn_submit =  $('#submit')
-
-        
-    btn_submit[0].addEventListener('click', function(event){
-        event.preventDefault()
-        const test =  $('#word_test').val()
-        compareWords(test,good_word)
-    })
-
-
-    
-
-    
-
-
+    // a la connexion, on affiche le login du user
+    $('#span-user').html(localStorage.getItem('user'))
 
 </script>
+<script src="/scripts/index.js"></script>

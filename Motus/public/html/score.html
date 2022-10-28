@@ -1,57 +1,43 @@
 <!DOCTYPE html>
-    <h1>Page Score</h1>
-    <a href="index.html">Back Home</a>
+  <head>
+    <link rel="stylesheet" href="../css/score.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </head>
 
-    <table>
-        <thead>
-          <tr>
-            <th>Info</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Nb Word(s) found</td>
-            <td><span id='score_value'>42</span></td>
-          </tr>
-          <tr>
-            <td>Average try</td>
-            <td><span id='tries_data'>data</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="container-score">
+      <div class="title">S</div>
+      <div class="title">C</div>
+      <div class="title">O</div>
+      <div class="title">R</div>
+      <div class="title">E</div>
+    </div>
+    
 
-
-    <style>
-        table {
-                border: 1px solid #373737;
-                margin-bottom: 20px;
-                text-align: left;
-            }
-
-        table   {
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                }
-
-        td {
-                padding: 10px;
-                border: 1px solid #373737;
-            }
-
-        th {
-                font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                padding: 10px;
-                background: #373737;
-                color: #fff;
-            }
-    </style>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <div class="container-table">
+      <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-left">Nb Word(s) found</td>
+              <td><span id='score_value'>42</span></td>
+            </tr>
+            <tr>
+              <td class="td-left">Average try</td>
+              <td><span id='tries_data'>data</span></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+      <a href="index.html">Retour au jeu Yorus</a>
 
 <script>
     const user = localStorage.getItem('user')
+    console.log(user)
     fetch('http://localhost:4000/get_score?user='+user)
         .then(response => 
         {

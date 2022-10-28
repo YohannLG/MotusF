@@ -1,0 +1,74 @@
+body{
+    margin: 5%;
+    background-color: rgb(23, 62, 90);
+    color: white;
+}
+a{
+    color: white;
+}
+
+.container-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 68px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 10px 5px rgba(0, 0, 0, 0.5);
+}
+.container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 80%;
+    width: 80%;
+}
+.main form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 80%;
+    border: solid 2px white;
+    margin: 5%;
+    padding: 2%;
+    border-radius: 25px;
+    box-shadow: 15px 15px rgba(23, 62, 90,0.8);
+}
+.inside-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.inside-form input{
+    padding: 2%;
+    background-color: rgb(232, 240, 254);
+    border: solid 2px black;
+    border-radius: 10px;
+    color: rgb(23, 62, 90);
+    width: 50%;
+}
+.inside-form label
+{
+    margin-top: 3%;
+    margin-bottom: 1%;
+    width: 50%;
+}
+#login,#register{
+    margin: 3%;
+    min-width: 20%;
+    cursor: pointer;
+    background-color:rgb(23, 62, 90) !important;
+    max-width: 25%;
+    color: white;
+}

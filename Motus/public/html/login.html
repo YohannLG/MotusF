@@ -1,104 +1,32 @@
-<!-- <head>
-    <title>Log in</title>
-</head>
-
-<body>
-    <div>
-        <ul id="listuser">
-            <h3> All users here: </h3>
-        </ul>
-    </div>
-
-    <form onsubmit="return false">
-        <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
-            <button type="submit" onclick="Login()">Login</button>
-
-        </div>
-    </form>
-</body>
-
-</html>
-
-<script>
-    function Login() {
-        var a = new Array();
-        up1 = new Object();
-        up2 = new Object();
-
-        up1 = {
-        name:'rayane',
-        password: btoa('rayane')
-    };
-    up2 = {
-        name:'yohann',
-    password: btoa('yohann')
-    };
-    a.push(up1);
-    a.push(up2);
-    }
-
-var username = document.getElementById('uname').value;
-var password = document.getElementById('psw').value;
-sessionStorage.setItem('currentloggedin',username);
-localStorage.setItem('all_users',JSON.stringify(a));
-
-a=JSON.parse((localStorage.getItem("all_users")));
-a.push({name: username, password: password});
-localStorage.setItem('name',JSON.stringify(a));
-for(var i=0; i<a.length; i++)
-  {
-   var li = document.createElement("li");
-   li.innerHTML=a[i]['name'];
-   document.getElementById("listuser").appendChild(li);
-  }
-</script> -->
-
-<html>
+<!DOCTYPE html>
     <head>
-    <title>Log in</title>
+        <link rel="stylesheet" href="../css/login.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     </head>
     <body>
-    <div class="container">
-    <div class="main">
-    <form id="form_id" method="post" name="myform">
-    <label>User Name :</label>
-    <input type="text" name="username" id="username"/>
-    <label>Password :</label>
-    <input type="password" name="password" id="password"/>
-    <input type="button" value="Login" id="login"/>
-    </form>
-    </div>
-    </div>
+        <pre>
+            <div class="container-login">
+                <div class="title">L</div>
+                <div class="title">O</div>
+                <div class="title">G </div>
+                <div class="title">I</div>
+                <div class="title">N</div>
+            </div>
+        </pre>
+        <div class="container">
+            <div class="main">
+                <form id="form_id" method="post" name="myform">
+                    <div class="inside-form">
+                        <label>User Name :</label>
+                        <input type="text" name="username" id="username"/>
+                        <label>Password :</label>
+                        <input type="password" name="password" id="password"/>
+                        <input type="button" value="Login" id="login"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="register.html" id="lien_register">Vous n'avez pas de compte ? S'inscrire</a>
     </body>
-    </html>
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-   
-    <script>
-   
-
-
-        const btn_login = $('#login').click(function (event) {
-            event.preventDefault()
-            var username = $('#username').val()
-            var password = $('#password').val()
-            console.log('nos valeurs : ',username,password)
-            if (username == 'Arnaud'&& password == 'Yohann') 
-            {
-                console.log(' ok')
-                localStorage.setItem('user',username)
-                window.location = "index.html"
-            } else {
-                console.log('erreur')
-            }
-
-        })
-
-        
-      
-   
-    </script>
+</html>
+<script src="/scripts/login.js"></script>
