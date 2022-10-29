@@ -1,0 +1,14 @@
+FROM node:12.22.9 as auth_f
+
+# Create app directory
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . . 
+
+EXPOSE 5000
+
+CMD [ "node", "auth.js" ]

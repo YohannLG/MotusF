@@ -66,8 +66,7 @@ let good_word ='' // Le mot du jour va etre enregisté ici
             const container = $('.container-grid')
             console.log('ma grid ',container)
             container.empty()
-            for (let i = 0; i < new_word.length; i ++) {
-                
+            for (let i = 0; i < new_word.length; i ++) { 
                 container.append('<div class="grid"><label for="word_test" class="grid-label"></label></div>')
             }
 
@@ -161,6 +160,7 @@ let good_word ='' // Le mot du jour va etre enregisté ici
            if (compare==true) {
             console.clear()
             console.log(' VOUS AVEZ TROUVE LE MOT : ',good_word)
+            
             console.log('Appel de lAPI pour update le score')
 
 
@@ -198,6 +198,7 @@ let good_word ='' // Le mot du jour va etre enregisté ici
                 }).then(text => {
                     const datas = JSON.parse(text)
                     console.log(datas)
+                    alert('Felicitations ! vous avez trouvé le mot du jour')
                 })
 
             })

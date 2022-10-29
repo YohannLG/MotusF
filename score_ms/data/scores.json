@@ -11,7 +11,7 @@
   },
   {
     "login": "Rayane",
-    "score": 12,
+    "score": 13,
     "avg_tries": 5
   },
   {
@@ -20,8 +20,8 @@
     "avg_tries": 1
   },
   {
-    "login": "Test",
-    "score": "0",
-    "avg_tries": "0"
+    "login": "Simon",
+    "score": 2,
+    "avg_tries": 2.5
   }
 ]

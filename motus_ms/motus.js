@@ -5,6 +5,12 @@ const port = process.env.PORT || 3000
 const host = os.hostname()
 app.use(express.static('public'));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+
 app.listen(port, () => {
     console.log(`Motus app listening on port ${port}`)
   })
