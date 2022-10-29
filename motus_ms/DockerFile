@@ -1,4 +1,4 @@
-FROM node:12.22.9 as motus
+FROM node:12.22.9 as motus_f
 
 # Create app directory
 WORKDIR /app
