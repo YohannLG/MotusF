@@ -16,7 +16,7 @@
 
 
 
-## Lancement du projet
+## Lancement du projet <a name ="Lancementduprojet"></a>
 Après avoir récupérer le projet  ( https://github.com/YohannLG/MotusF.git ), et installer [Docker](https://docs.docker.com/get-docker/), nous pouvons à présent lancer le projet.
 Dans notre projet nous avons 3 différents microservices. Par conséquent nous avons 3 ficher js. Afin d'éviter de les executer un par un dans 3 terminaux distincts, nous pouvons éxecuter et lancer le script de notre application via la commande 
 ```bash
@@ -32,7 +32,7 @@ docker-compose down
 ```
 En effet, la commande   ```docker-compose down``` supprime  les conteneurs, et lorsque vous utiliserez l'application, les fichiers json contenant les données seront modifiés dans ces conteneurs et non pas sur votre machine. Lancer cette derniere commande  fera donc disparaitre  les modifications apportées en cours de test.
 
-## Connexion :
+## Connexion <a name ="Connexion"></a>
 
 Avant toute chose, lorsque nous lançons notre appli nous allons être redirigé de force vers la page de connexion. En effet si le paramètre user est null alors on utilise la commande window.location = '/html/login.html' afin d'identifier l'utilisateur.
 On a aussi la possibilité de créer un compte le cas échéant.
@@ -51,7 +51,7 @@ Les données sont communiquées une nouvelle fois entre le script register.js et
 
 Les données dans le cas de la création d'un compte sont directement envoyé vers l'api new_score dans le micro service score. Nous allons ajouté notre nouvel utilisateur et initialisé son score et son avg_try à 0.
 
-## Jeu et mise à jour du score :
+## Jeu et mise à jour du score <a name ="Jeuetmiseàjourduscore"></a>
 
 Tout d'abord pour jouer nous avons besoin d'un mot généré aléatoirement et qui sera identique pendant 24h. Nous avons aussi la possibilité de généré un nouveau mot aléatoire quand l'utilisateur souhaitera changer de mot.
 POur cela nous avons conçu 2 API : word et new_word.
@@ -81,7 +81,7 @@ const new_avg = req.query.avg_tries
 ```
 Il suffit donc alors de modifier les variables et d'écraser les données pour l'utilisateur en question dans notre fichier json.
 
- ## Liste des API par micro service :
+ ## Liste des API par micro service <a name ="ListedesAPIparmicroservice"></a>
 ### Dans motus on retrouve :
 - word permettant la génération d'un mot du jour aléatoire 
 - new_word permettant la génération d'un nouveau mot à la demande du client
