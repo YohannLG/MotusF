@@ -7,7 +7,7 @@ services:
   motus_f:
     build:
       context: ./motus_ms
-      dockerfile: /home/cytech/Desktop/MotusF/motus_ms/DockerFile
+      dockerfile: ./DockerFile
     image: motus_f
     container_name: motus_f
     ports:
@@ -21,7 +21,7 @@ services:
   score_f:
     build:
       context: ./score_ms
-      dockerfile: /home/cytech/Desktop/MotusF/score_ms/DockerFile
+      dockerfile: ./DockerFile
     image: score_f
     container_name: score_f
     ports:
@@ -33,7 +33,7 @@ services:
   auth_f:
     build:
       context: ./auth_ms
-      dockerfile: /home/cytech/Desktop/MotusF/auth_ms/DockerFile
+      dockerfile: ./DockerFile
     image: auth_f
     container_name: auth_f
     ports:
