@@ -71,17 +71,17 @@ Il suffit donc alors de modifier les variables et d'écraser les données pour l
 
  ## Liste des API par micro service :
 ### Dans motus on retrouve :
-- word
-- new_word
+- word permettant la génération d'un mot du jour aléatoire 
+- new_word permettant la génération d'un nouveau mot à la demande du client
 
 ### Dans score on retrouve : 
-- get_score
-- update_score
-- new_score
+- get_score permet de récupérer le score de l'user actif et d'afficher le score dans notre score.html
+- update_score permet de mettre à jour le score de l'user (incrémenter score ou avg_tries)
+- new_score initialise score et avg_tries à 0 pour chaque nouvel utilisateur créé
 
 ### Dans authentification on retrouve :
-- login
-- register
+- login permet de se connecter si le login et le mdp match avec un object de notre database json
+- register permet de créer un compte 
 
 
 
