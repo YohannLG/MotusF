@@ -1,11 +1,12 @@
 # Motus -- LE GUEN Yohann, BENLAIFAOUI Rayane - ING 3 IA 
 
 # Table of Contents
-1. [Structure du Projet](#Structure Du Projet)
-2. [Lancement du projet](#Lancement du projet)
+1. [Structure du Projet](# Structure Du Projet)
+2. [Lancement du projet](# Lancement du projet)
+
    1.[Remarque](#Remarque)
-3. [Connexion](#Connexion)
-4. [Jeu et mise à jour du score](#Jeu et mise à jour du score)
+3. [Connexion](#Connexion : )
+4. [Jeu et mise à jour du score :](#Jeu et mise à jour du score :)
 5. [Liste des API par micro service](#Liste des API par micro service :)
 
 ## Structure Du Projet
