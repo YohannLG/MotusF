@@ -9,7 +9,7 @@
 4. [Jeu et mise à jour du score :](#Jeu et mise à jour du score)
 5. [Liste des API par micro service](#Liste des API par micro service)
 
-## <a name ="Structure Du Projet"></a>
+## Structure du Projet <a name ="Structure Du Projet"></a>
 ![Screenshot](Structure-motus.png)
 ![Screenshot](Merdaid-graph.png)
 ![Screenshot](Mermaid-graph2.png)
