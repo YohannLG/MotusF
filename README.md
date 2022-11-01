@@ -97,9 +97,12 @@ Il suffit donc alors de modifier les variables et d'écraser les données pour l
 - register permet de créer un compte 
 
 
-##Ouverture
+## Ouverture
 
 Durant ce module nous avons pu apprendre et surtout comprendre quelle était la nécessité des micro services.
 Par le biais d'une application, le jeu du motus, nous avons pu découper chaque grandes étapes que nous devions coder en parties indépendantes gérant ses propres responsabilitées.
 
-Ce qui a été le plus dur pour nous est de comprendre comment était-il possible de créer une même application sur différent server. Tout d'abord on s'est demandé pourquoi faire cela. Dans notre manière habituelle de développer des appli on a tendance a tout mettre dans un seul fichier. Cependant si un bug survient, toute notre application serait down. Grâce aux microserivces, on peut éviter un tel prolème. En effet, dans le cas d'une appli developpé avec une architecture comprennant différents micro services seul le micro sevice ayant un bug sera non fonctionnel. De plus il sera plus facilement identifiable pour régler les 
+Ce qui a été le plus dur pour nous est de comprendre comment était-il possible de créer une même application sur différent server. Tout d'abord on s'est demandé pourquoi faire cela. Dans notre manière habituelle de développer des appli on a tendance a tout mettre dans un seul fichier. Cependant si un bug survient, toute notre application serait down. Grâce aux microserivces, on peut éviter un tel prolème. En effet, dans le cas d'une appli developpé avec une architecture comprennant différents micro services seul le micro sevice ayant un bug sera non fonctionnel. De plus il sera plus facilement identifiable pour débugger.
+
+A l'aide des schémas mermaid l'objectif paraissait plus clair. Par la suite nous avons perdu un peu de temps à comprendre comment envoyer les données entre différents micro services. Sans ce temps perdu nous aurions aimé peaufiner notre application en ajoutant des fonctionnalités différentes.
+
