@@ -1,6 +1,6 @@
 # Motus -- LE GUEN Yohann, BENLAIFAOUI Rayane - ING 3 IA 
 
-# Table of Contents
+# Sommaire
 1. [Structure du Projet](#StructureDuProjet)
 2. [Lancement du projet](#Lancementduprojet)
 
